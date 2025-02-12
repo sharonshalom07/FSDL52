@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dostoevsky Quote Generator</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('download.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .quote-container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      width: 80%;
+      max-width: 600px;
+    }
+    .quote-text {
+      font-size: 28px;
+      font-style: italic;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .quote-author {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .btn-quote {
+      background-color: #ff6347;
+      color: white;
+      border: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .btn-quote:hover {
+      background-color: #ff5733;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-container">
+    <div class="quote-text" id="quoteText">"The soul is healed by being with children."</div>
+    <div class="quote-author" id="quoteAuthor">- Fyodor Dostoevsky</div>
+    <button id="newQuoteBtn" class="btn-quote">Get New Quote</button>
+  </div>
+
+  <!-- Bootstrap JS and Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    const quotes = [
+      {
+        text: "The soul is healed by being with children.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "To live without hope is to cease to live.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "Man is what he believes.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "The mystery of human existence lies not in just staying alive, but in finding something to live for.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "It takes something more than intelligence to act intelligently.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "The greatest happiness is to know the source of unhappiness.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "Pain and suffering are always inevitable for a large intelligence and a deep heart.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "What is hell? I maintain that it is the suffering of being unable to love.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "A man takes pride in what he is, even though he may be completely wrong.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "There is no subject so old that it does not seem to be new to the one who is hearing it for the first time.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "Lying to ourselves is more deeply ingrained than lying to others.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "We are all asleep until we fall in love.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "The greatest misfortune is not to be capable of suffering.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "The best way to keep a prisoner from escaping is to make sure he never knows he's in prison.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "Love in action is a harsh and dreadful thing compared to love in dreams.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "If you want to be a real human being, you must suffer. The more you suffer, the more you will live.",
+        author: "Fyodor Dostoevsky"
+      },
+      {
+        text: "A man who lies to himself, and believes his own lies, becomes unable to recognize truth either in himself or in anyone else, and he ends up losing respect for himself and for others.",
+        author: "Fyodor Dostoevsky"
+      }
+    ];
+
+    const quoteText = document.getElementById('quoteText');
+    const quoteAuthor = document.getElementById('quoteAuthor');
+    const newQuoteBtn = document.getElementById('newQuoteBtn');
+
+    newQuoteBtn.addEventListener('click', function() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteText.textContent = `"${quotes[randomIndex].text}"`;
+      quoteAuthor.textContent = `- ${quotes[randomIndex].author}`;
+    });
+  </script>
+</body>
+</html>
