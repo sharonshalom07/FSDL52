@@ -1,0 +1,19 @@
+[
+    {
+      "name": "Data Science",
+      "description": "Analyze and interpret complex data to help companies make decisions."
+    },
+    {
+      "name": "Engineering",
+      "description": "Apply scientific principles to design, build, and maintain structures, machines, and systems."
+    },
+    {
+      "name": "Arts",
+      "description": "Express creativity through various forms of visual and performing arts."
+    },
+    {
+      "name": "Design",
+      "description": "Combine creativity with practicality to design products, interfaces, or experiences."
+    }
+  ]
+  
