@@ -1,0 +1,58 @@
+[
+    {
+      "id": 1,
+      "text": "I enjoy analyzing data and solving complex quantitative problems.",
+      "options": [
+        { "text": "Strongly Agree", "weights": { "Data Science": 3, "Engineering": 2 } },
+        { "text": "Agree", "weights": { "Data Science": 2, "Engineering": 1 } },
+        { "text": "Neutral", "weights": { "Data Science": 1, "Engineering": 0 } },
+        { "text": "Disagree", "weights": { "Data Science": 0, "Engineering": 0 } },
+        { "text": "Strongly Disagree", "weights": { "Data Science": 0, "Engineering": 0 } }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "I feel a strong drive for creative expression through visual arts or design.",
+      "options": [
+        { "text": "Strongly Agree", "weights": { "Arts": 3, "Design": 3 } },
+        { "text": "Agree", "weights": { "Arts": 2, "Design": 2 } },
+        { "text": "Neutral", "weights": { "Arts": 1, "Design": 1 } },
+        { "text": "Disagree", "weights": { "Arts": 0, "Design": 0 } },
+        { "text": "Strongly Disagree", "weights": { "Arts": 0, "Design": 0 } }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "I prefer a structured, organized work environment with clear procedures.",
+      "options": [
+        { "text": "Strongly Agree", "weights": { "Engineering": 3, "Data Science": 1 } },
+        { "text": "Agree", "weights": { "Engineering": 2, "Data Science": 1 } },
+        { "text": "Neutral", "weights": { "Engineering": 1, "Data Science": 0 } },
+        { "text": "Disagree", "weights": { "Engineering": 0, "Data Science": 0 } },
+        { "text": "Strongly Disagree", "weights": { "Engineering": 0, "Data Science": 0 } }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "I enjoy exploring innovative ideas and thinking outside the box.",
+      "options": [
+        { "text": "Strongly Agree", "weights": { "Design": 3, "Arts": 1 } },
+        { "text": "Agree", "weights": { "Design": 2, "Arts": 1 } },
+        { "text": "Neutral", "weights": { "Design": 1, "Arts": 0 } },
+        { "text": "Disagree", "weights": { "Design": 0, "Arts": 0 } },
+        { "text": "Strongly Disagree", "weights": { "Design": 0, "Arts": 0 } }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "I enjoy working with technology and logical problem solving.",
+      "options": [
+        { "text": "Strongly Agree", "weights": { "Engineering": 2, "Data Science": 2 } },
+        { "text": "Agree", "weights": { "Engineering": 1, "Data Science": 1 } },
+        { "text": "Neutral", "weights": { "Engineering": 0, "Data Science": 0 } },
+        { "text": "Disagree", "weights": { "Engineering": 0, "Data Science": 0 } },
+        { "text": "Strongly Disagree", "weights": { "Engineering": 0, "Data Science": 0 } }
+      ]
+    }
+  ]
+  
