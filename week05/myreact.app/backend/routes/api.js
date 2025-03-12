@@ -4,7 +4,7 @@ const analysisController = require('../controllers/analysisController');
 
 // Endpoint to get questions
 router.get('/questions', (req, res) => {
-  const questions = require('../data/questions.json');
+  const questions = require('...../data/questions.json');
   res.json(questions);
 });
 

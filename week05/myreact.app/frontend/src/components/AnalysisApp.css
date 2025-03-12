@@ -1,0 +1,75 @@
+/* AnalysisApp.css */
+
+.analysis-app {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .analysis-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #6a3093, #a044ff, #6a3093);
+    background-size: 200% 200%;
+    animation: analysisGradient 8s ease infinite;
+    padding: 100px 20px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 80px;
+  }
+  
+  @keyframes analysisGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .analysis-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .analysis-hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  }
+  
+  .analysis-hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .analysis-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,192L48,202.7C96,213,192,235,288,213.3C384,192,480,128,576,122.7C672,117,768,171,864,181.3C960,192,1056,160,1152,165.3C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center bottom;
+    background-size: cover;
+    z-index: 1;
+  }
+  
+  .analysis-container {
+    margin-top: -60px; /* Overlap wave */
+  }
+  
+  .analysis-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  

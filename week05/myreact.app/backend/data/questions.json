@@ -1,41 +1,261 @@
 [
   {
     "id": 1,
-    "text": "Do you enjoy working with numbers and solving puzzles?",
+    "text": "I enjoy working with data and numbers, often seeing patterns that others miss.",
     "options": [
       {
-        "text": "Yes, I love numbers.",
-        "weights": {
-          "Data Science": 2,
-          "Engineering": 1
-        }
+        "text": "Strongly Agree",
+        "weights": { "Data Science": 3, "Engineering": 2 }
       },
       {
-        "text": "I prefer creative tasks.",
-        "weights": {
-          "Arts": 2,
-          "Design": 1
-        }
+        "text": "Agree",
+        "weights": { "Data Science": 2, "Engineering": 1 }
+      },
+      {
+        "text": "Neutral",
+        "weights": { "Data Science": 1 }
+      },
+      {
+        "text": "Disagree",
+        "weights": {}
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": {}
       }
     ]
   },
   {
     "id": 2,
-    "text": "Do you thrive in structured environments or prefer freedom to innovate?",
+    "text": "When faced with a new challenge, I methodically plan and follow a structured approach.",
     "options": [
       {
-        "text": "I prefer structure and clear guidelines.",
-        "weights": {
-          "Engineering": 2,
-          "Data Science": 1
-        }
+        "text": "Strongly Agree",
+        "weights": { "Engineering": 3, "Data Science": 1 }
       },
       {
-        "text": "I enjoy freedom and creative exploration.",
-        "weights": {
-          "Design": 2,
-          "Arts": 1
-        }
+        "text": "Agree",
+        "weights": { "Engineering": 2, "Data Science": 1 }
+      },
+      {
+        "text": "Neutral",
+        "weights": { "Engineering": 1 }
+      },
+      {
+        "text": "Disagree",
+        "weights": {}
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": {}
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "text": "I am highly curious and love exploring creative solutions or artistic expression.",
+    "options": [
+      {
+        "text": "Strongly Agree",
+        "weights": { "Arts": 3, "Design": 3 }
+      },
+      {
+        "text": "Agree",
+        "weights": { "Arts": 2, "Design": 2 }
+      },
+      {
+        "text": "Neutral",
+        "weights": { "Arts": 1, "Design": 1 }
+      },
+      {
+        "text": "Disagree",
+        "weights": {}
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": {}
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "text": "I can quickly understand complex technical concepts and apply them in practical ways.",
+    "options": [
+      {
+        "text": "Strongly Agree",
+        "weights": { "Engineering": 3, "Data Science": 2 }
+      },
+      {
+        "text": "Agree",
+        "weights": { "Engineering": 2, "Data Science": 1 }
+      },
+      {
+        "text": "Neutral",
+        "weights": {}
+      },
+      {
+        "text": "Disagree",
+        "weights": {}
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": {}
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "text": "I enjoy expressing myself through visual arts, design, or creative writing.",
+    "options": [
+      {
+        "text": "Strongly Agree",
+        "weights": { "Arts": 3, "Design": 3 }
+      },
+      {
+        "text": "Agree",
+        "weights": { "Arts": 2, "Design": 2 }
+      },
+      {
+        "text": "Neutral",
+        "weights": {}
+      },
+      {
+        "text": "Disagree",
+        "weights": {}
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": {}
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "text": "I am highly organized and pay close attention to detail in most tasks I do.",
+    "options": [
+      {
+        "text": "Strongly Agree",
+        "weights": { "Engineering": 2, "Data Science": 1 }
+      },
+      {
+        "text": "Agree",
+        "weights": { "Engineering": 1 }
+      },
+      {
+        "text": "Neutral",
+        "weights": {}
+      },
+      {
+        "text": "Disagree",
+        "weights": { "Arts": 1 }
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": { "Arts": 2 }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "text": "I often think about the future and enjoy brainstorming innovative ideas.",
+    "options": [
+      {
+        "text": "Strongly Agree",
+        "weights": { "Design": 3, "Arts": 1 }
+      },
+      {
+        "text": "Agree",
+        "weights": { "Design": 2 }
+      },
+      {
+        "text": "Neutral",
+        "weights": {}
+      },
+      {
+        "text": "Disagree",
+        "weights": {}
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": {}
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "text": "I find problem-solving puzzles, logic games, or math problems engaging and fun.",
+    "options": [
+      {
+        "text": "Strongly Agree",
+        "weights": { "Data Science": 2, "Engineering": 2 }
+      },
+      {
+        "text": "Agree",
+        "weights": { "Data Science": 1, "Engineering": 1 }
+      },
+      {
+        "text": "Neutral",
+        "weights": {}
+      },
+      {
+        "text": "Disagree",
+        "weights": {}
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": {}
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "text": "I thrive in a structured environment with clear rules and guidelines.",
+    "options": [
+      {
+        "text": "Strongly Agree",
+        "weights": { "Engineering": 2, "Data Science": 1 }
+      },
+      {
+        "text": "Agree",
+        "weights": { "Engineering": 1 }
+      },
+      {
+        "text": "Neutral",
+        "weights": {}
+      },
+      {
+        "text": "Disagree",
+        "weights": { "Arts": 1 }
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": { "Arts": 2 }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "text": "I feel motivated by the chance to create something entirely new and unique.",
+    "options": [
+      {
+        "text": "Strongly Agree",
+        "weights": { "Design": 3, "Arts": 2 }
+      },
+      {
+        "text": "Agree",
+        "weights": { "Design": 2, "Arts": 1 }
+      },
+      {
+        "text": "Neutral",
+        "weights": {}
+      },
+      {
+        "text": "Disagree",
+        "weights": {}
+      },
+      {
+        "text": "Strongly Disagree",
+        "weights": {}
       }
     ]
   }
