@@ -9,13 +9,17 @@ function App() {
   const [result, setResult] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
-  // Fetch questions from the backend API
   useEffect(() => {
     fetch('http://localhost:5000/api/questions')
       .then(res => res.json())
-      .then(data => setQuestions(data))
+      .then(data => {
+        console.log("Fetched questions:", data); // Debug log
+        setQuestions(data);
+      })
       .catch(err => console.error('Error fetching questions:', err));
   }, []);
+
+  console.log("App is rendering", { questions, answers, submitted });
 
   const handleAnswerChange = (questionId, optionIndex) => {
     setAnswers(prev => ({ ...prev, [questionId]: optionIndex }));
@@ -34,6 +38,7 @@ function App() {
     })
       .then(res => res.json())
       .then(data => {
+        console.log("Analysis result:", data); // Debug log
         setResult(data);
         setSubmitted(true);
       })
