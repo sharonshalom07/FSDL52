@@ -11,15 +11,20 @@ function App() {
   // Fetch questions from the backend API
   useEffect(() => {
     fetch('http://localhost:5000/api/questions')
-      .then((res) => res.json())
-      .then((data) => setQuestions(data))
-      .catch((err) => console.error('Error fetching questions:', err));
+      .then(res => res.json())
+      .then(data => {
+        console.log("Fetched questions:", data); // Debug log
+        setQuestions(data);
+      })
+      .catch(err => console.error('Error fetching questions:', err));
   }, []);
-
+  
   const handleAnswerChange = (questionId, optionIndex) => {
     setAnswers((prev) => ({ ...prev, [questionId]: optionIndex }));
   };
 
+  
+  
   const handleSubmit = () => {
     // Prepare answers as an array for the backend
     const answerArray = Object.keys(answers).map((key) => ({
