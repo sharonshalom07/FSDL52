@@ -52,3 +52,9 @@ body {
     transform: scale(1.05);
     box-shadow: 0 0 15px #00ff9d;
   } 
+  // Add to styles.css
+@keyframes timeWarp {
+  0% { filter: hue-rotate(0deg) blur(0); }
+  50% { filter: hue-rotate(180deg) blur(2px); }
+  100% { filter: hue-rotate(0deg) blur(0); }
+}

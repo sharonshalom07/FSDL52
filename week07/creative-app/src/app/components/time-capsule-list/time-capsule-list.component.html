@@ -1,6 +1,6 @@
 <div class="capsule-grid">
-    <div *ngFor="let capsule of capsules; trackBy: trackById" 
-         class="capsule-card" [class.glowing]="!capsule.isUnlocked">
+    <div *ngFor="let capsule of capsules(); trackBy: trackById" 
+    class="capsule-card" [class.glowing]="!capsule.isUnlocked">
       <div class="capsule-header">
         <h3>{{ capsule.targetDate | date }}</h3>
         <app-countdown-timer [targetDate]="capsule.targetDate"></app-countdown-timer>
