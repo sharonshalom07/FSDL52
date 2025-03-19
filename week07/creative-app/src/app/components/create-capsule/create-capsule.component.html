@@ -1,0 +1,19 @@
+<form [formGroup]="capsuleForm" (ngSubmit)="onSubmit()">
+    <div class="time-machine-ui">
+      <textarea #messageInput formControlName="message" placeholder="Message to your future self..."></textarea>
+      
+      <!-- Use the today property -->
+      <input type="date" formControlName="targetDate" [min]="today">
+      
+      <div class="theme-selector">
+        <label *ngFor="let theme of ['future', 'past']">
+          <input type="radio" formControlName="theme" [value]="theme">
+          {{ theme | titlecase }} Theme
+        </label>
+      </div>
+  
+      <button type="submit" [disabled]="!capsuleForm.valid">
+        🚀 Launch Capsule
+      </button>
+    </div>
+  </form>

@@ -1,0 +1,54 @@
+/* Add retro-futuristic styling */
+body {
+    background: #0a0a0a;
+    color: #00ff9d;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .time-machine-ui {
+    border: 2px solid #00ff9d;
+    padding: 2rem;
+    margin: 2rem;
+    background: rgba(0,0,0,0.8);
+  }
+  
+  .capsule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .capsule-card {
+    border: 1px solid #00ff9d;
+    padding: 1rem;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  
+  .capsule-card.glowing {
+    box-shadow: 0 0 15px #00ff9d55;
+  }
+  
+  .countdown {
+    font-size: 1.2em;
+    color: #ff007b;
+  }
+  
+  .countdown.unlocked {
+    color: #00ff9d;
+  }
+  
+  button {
+    background: #00ff9d;
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ff9d;
+  } 
