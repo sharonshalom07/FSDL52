@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Theme Switcher</title>
+    <!-- Internal CSS -->
+    <style>
+        /* Light Theme */
+        body.light {
+            background-color: #f9f9f9;
+            color: #333;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button.light {
+            background-color: #333;
+            color: #f9f9f9;
+            border: 2px solid #333;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Dark Theme */
+        body.dark {
+            background-color: #333;
+            color: #f9f9f9;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button.dark {
+            background-color: #f9f9f9;
+            color: #333;
+            border: 2px solid #f9f9f9;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Button Hover Effects */
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Center Container */
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body class="light">
+    <!-- HTML Content -->
+    <div class="container">
+        <h1>Theme Switcher</h1>
+        <button id="themeSwitcher" class="light">Switch to Dark Theme</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Select the button and the body element
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const body = document.body;
+
+        // Event listener for theme switch
+        themeSwitcher.addEventListener('click', () => {
+            if (body.classList.contains('light')) {
+                // Switch to dark theme
+                body.classList.replace('light', 'dark');
+                themeSwitcher.classList.replace('light', 'dark');
+                themeSwitcher.textContent = "Switch to Light Theme";
+            } else {
+                // Switch to light theme
+                body.classList.replace('dark', 'light');
+                themeSwitcher.classList.replace('dark', 'light');
+                themeSwitcher.textContent = "Switch to Dark Theme";
+            }
+        });
+    </script>
+</body>
+</html>

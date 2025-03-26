@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beautiful Table Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        td {
+            font-size: 16px;
+            color: #555;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row colors */
+        }
+
+        tr:hover {
+            background-color: #ddd; /* Highlight row on hover */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Beautiful Table Design</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sharon</td>
+                    <td>25</td>
+                    <td>Panvel</td>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>30</td>
+                    <td>Mumbai</td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>28</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>35</td>
+                    <td>Navi Mumbai</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

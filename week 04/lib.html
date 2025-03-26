@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: #f5f5dc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff8dc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #8b4513;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #deb887;
+            color: white;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Library Management</h1>
+        <ul id="bookList"></ul>
+    </div>
+    <script>
+        class Book {
+            constructor(title, author) {
+                this.title = title;
+                this.author = author;
+            }
+
+            details() {
+                return `${this.title} by ${this.author}`;
+            }
+        }
+
+        class Library {
+            constructor() {
+                this.books = [];
+            }
+
+            addBook(book) {
+                this.books.push(book);
+                this.displayBooks();
+            }
+
+            displayBooks() {
+                const bookList = document.getElementById("bookList");
+                bookList.innerHTML = "";
+
+                this.books.forEach((book, index) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${index + 1}. ${book.details()}`;
+                    bookList.appendChild(li);
+                });
+            }
+        }
+
+        // Initialize the library and add books
+        const library = new Library();
+        library.addBook(new Book("1984", "George Orwell"));
+        library.addBook(new Book("To Kill a Mockingbird", "Harper Lee"));
+        library.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald"));
+    </script>
+</body>
+</html>

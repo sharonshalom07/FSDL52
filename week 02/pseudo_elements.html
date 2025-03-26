@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Famous Landmarks</title>
+    <style>
+        /* Modern gradient background */
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(120deg, #89FFFD, #FFDFD3);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #444;
+            font-size: 36px;
+        }
+
+        .landmark-table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        th {
+            background-color: #FF6F6F;
+            color: #fff;
+            padding: 15px;
+            font-size: 20px;
+        }
+
+        td {
+            padding: 15px;
+            font-size: 18px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        /* Stylish pseudo-element for table */
+        th::after {
+            content: " 🗺️";
+        }
+
+        /* Alternating row styling */
+        tr:nth-child(even) {
+            background-color: #FFE5D4;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #FFF4F2;
+        }
+
+        /* Link styling within the table */
+        a {
+            text-decoration: none;
+            color: #FF6F6F;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Famous Landmarks Around the World</h1>
+    <table class="landmark-table">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Landmark</th>
+                <th>Year Built</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>India</td>
+                <td><a href="https://en.wikipedia.org/wiki/Taj_Mahal" target="_blank">Taj Mahal</a></td>
+                <td>1632</td>
+            </tr>
+            <tr>
+                <td>France</td>
+                <td><a href="https://en.wikipedia.org/wiki/Eiffel_Tower" target="_blank">Eiffel Tower</a></td>
+                <td>1889</td>
+            </tr>
+            <tr>
+                <td>USA</td>
+                <td><a href="https://en.wikipedia.org/wiki/Statue_of_Liberty" target="_blank">Statue of Liberty</a></td>
+                <td>1886</td>
+            </tr>
+            <tr>
+                <td>Italy</td>
+                <td><a href="https://en.wikipedia.org/wiki/Colosseum" target="_blank">Colosseum</a></td>
+                <td>80 AD</td>
+            </tr>
+            <tr>
+                <td>Egypt</td>
+                <td><a href="https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza" target="_blank">Great Pyramid of Giza</a></td>
+                <td>2560 BC</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
