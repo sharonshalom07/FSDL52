@@ -6,7 +6,8 @@
       <input type="date" formControlName="targetDate" [min]="today">
       
       <div class="theme-selector">
-        <label *ngFor="let theme of ['future', 'past']">
+        <!-- Change theme list to use actual themes -->
+        <label *ngFor="let theme of themes">
           <input type="radio" formControlName="theme" [value]="theme">
           {{ theme | titlecase }} Theme
         </label>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Addition</title>
+</head>
+<body>
+<h1>Addition of two numbers</h1>
+<script>
+    var a, b, sum;
+    a = parseInt(prompt("Enter first number:"));
+    b = parseInt(prompt("Enter second number:"));
+    sum = a + b;
+    alert("The sum of the numbers is: " + sum);
+</script>
+</body>
+</html>

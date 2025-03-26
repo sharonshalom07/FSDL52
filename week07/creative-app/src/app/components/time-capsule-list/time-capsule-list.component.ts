@@ -4,10 +4,12 @@ import { TimeCapsuleService } from '../../services/time-capsule.service';
 import { DatePipe } from '@angular/common';
 import { CountdownTimerComponent } from '../countdown-timer/countdown-timer.component';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   standalone: true,
-  imports: [DatePipe, CountdownTimerComponent, RouterLink],
+  imports: [DatePipe, CountdownTimerComponent, CommonModule],
   templateUrl: './time-capsule-list.component.html',
   styleUrl: './time-capsule-list.component.css'
 })

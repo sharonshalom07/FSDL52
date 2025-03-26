@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, inject } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { TimeCapsuleService } from '../../services/time-capsule.service';
 import { Router } from '@angular/router';
 import { ConfettiService } from '../../services/confetti.service';
@@ -7,7 +8,7 @@ import { Theme, EncryptionLevel } from '../../types';
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './create-capsule.component.html',
   styleUrls: ['./create-capsule.component.css']
 })
