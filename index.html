@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record</title>
+    <!-- Include AngularJS -->
+    <script src="node_modules/angular/angular.min.js"></script>
+</head>
+<body ng-app="studentApp" ng-controller="studentCtrl">
+
+    <div class="container">
+        <h2>Student Record</h2>
+        <form name="studentForm" ng-submit="submitForm()" novalidate>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" ng-model="student.name" required>
+                <span ng-show="studentForm.name.$touched && studentForm.name.$invalid">Name is required.</span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" ng-model="student.email" required>
+                <span ng-show="studentForm.email.$touched && studentForm.email.$invalid">A valid email is required.</span>
+            </div>
+            <div>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" ng-model="student.age" min="18" max="99" required>
+                <span ng-show="studentForm.age.$touched && studentForm.age.$invalid">Age must be between 18 and 99.</span>
+            </div>
+            <button type="submit" ng-disabled="studentForm.$invalid">Submit</button>
+        </form>
+
+        <div ng-if="studentSubmitted">
+            <h3>Student Details Submitted:</h3>
+            <p><strong>Name:</strong> {{ student.name }}</p>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Age:</strong> {{ student.age }}</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
