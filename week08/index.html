@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html ng-app="funApp" class="h-100" data-theme="light">
+<head>
+    <title>Magic Greeting Portal</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --background-gradient: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            --text-color: #2d3436;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a66efa;
+            --background-gradient: linear-gradient(45deg, #2d3436, #0984e3);
+            --text-color: #ffffff;
+        }
+
+        body {
+            background: var(--background-gradient);
+            min-height: 100vh;
+            font-family: 'Comic Neue', cursive;
+            color: var(--text-color);
+            transition: all 0.5s ease;
+        }
+
+        .magic-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .magic-card:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.02);
+        }
+
+        .emoji-container {
+            position: relative;
+            height: 150px;
+            margin-bottom: 2rem;
+        }
+
+        .floating-emoji {
+            font-size: 4rem;
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        .name-input {
+            border: none;
+            border-bottom: 3px solid var(--primary-color);
+            border-radius: 0;
+            font-size: 2rem;
+            padding: 15px;
+            background: transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .name-input:focus {
+            box-shadow: none;
+            border-bottom-color: var(--secondary-color);
+        }
+
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .history-panel {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .mood-selector .btn {
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+
+        .mood-selector .btn:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(2); }
+        }
+
+        .sparkle {
+            position: absolute;
+            pointer-events: none;
+            animation: sparkle 0.8s linear;
+        }
+
+        .stats-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .progress-bar {
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body ng-controller="MagicController" class="d-flex align-items-center">
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <button class="btn btn-light btn-circle" ng-click="toggleTheme()">
+            <i class="fas" ng-class="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+        </button>
+    </div>
+
+    <!-- History Panel -->
+    <div class="history-panel" ng-show="nameHistory.length > 0">
+        <h5 class="mb-3">Name History ⏳</h5>
+        <div class="d-flex flex-column gap-2">
+            <div ng-repeat="name in nameHistory track by $index" 
+                 class="badge bg-primary" 
+                 style="cursor: pointer"
+                 ng-click="restoreName($index)">
+                {{ name || 'Anonymous' }}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="magic-card p-5">
+                    <!-- Emoji Container -->
+                    <div class="emoji-container">
+                        <div class="floating-emoji" style="left: 10%; animation-delay: 0s">✨</div>
+                        <div class="floating-emoji" style="left: 30%; animation-delay: 0.5s">🎉</div>
+                        <div class="floating-emoji" style="left: 50%; animation-delay: 1s">🌈</div>
+                        <div class="floating-emoji" style="left: 70%; animation-delay: 1.5s">🎈</div>
+                    </div>
+
+                    <!-- Main Content -->
+                    <h1 class="text-center mb-4 display-3 fw-bold">
+                        <span ng-bind="dynamicGreeting"></span> {{name || 'World'}}! 
+                        <span class="dynamic-emoji">{{currentEmoji}}</span>
+                    </h1>
+
+                    <div class="mb-5">
+                        <input type="text" 
+                               class="form-control name-input" 
+                               ng-model="name" 
+                               placeholder="Enter your magical name"
+                               ng-change="updateHistory()"
+                               ng-style="{'color': nameColor}">
+                    </div>
+
+                    <!-- Mood Selector -->
+                    <div class="mood-selector text-center mb-5">
+                        <h4 class="mb-3">Select Your Mood 🌟</h4>
+                        <div class="btn-group">
+                            <button ng-repeat="mood in moods" 
+                                    class="btn btn-lg" 
+                                    ng-class="mood.class"
+                                    ng-click="setMood(mood)">
+                                {{mood.emoji}} {{mood.name}}
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stats Panel -->
+                    <div class="stats-box">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h5>Name Analysis 🔍</h5>
+                                <ul class="list-unstyled">
+                                    <li>Length: {{name.length || 0}} characters</li>
+                                    <li>Vowels: {{vowelCount}}</li>
+                                    <li>Consonants: {{consonantCount}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Magic Meter ⚡</h5>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" ng-style="{width: magicLevel + '%'}"></div>
+                                </div>
+                                <small class="text-muted">{{magicPercentage}}% Magical</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-xl btn-primary me-3" 
+                                ng-click="addEffect('🎊')"
+                                ng-disabled="!name">
+                            <i class="fas fa-sparkles me-2"></i>Sparkle
+                        </button>
+                        <button class="btn btn-xl btn-success" 
+                                ng-click="animateName()"
+                                ng-disabled="!name">
+                            <i class="fas fa-play me-2"></i>Animate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">✨ Magic Portal Guide ✨</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Features:</h5>
+                    <ul>
+                        <li>Enter your name for real-time analysis</li>
+                        <li>Choose different moods to change the theme</li>
+                        <li>Track your name history on the left panel</li>
+                        <li>Toggle between light/dark themes</li>
+                        <li>Create magical animations with action buttons</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        angular.module('funApp', [])
+        .controller('MagicController', function($scope, $interval, $timeout) {
+            // Initial State
+            $scope.name = '';
+            $scope.nameHistory = [];
+            $scope.isDarkMode = false;
+            $scope.currentEmoji = '👋';
+            $scope.nameColor = '#2d3436';
+            $scope.magicLevel = 0;
+            
+            // Mood Settings
+            $scope.moods = [
+                { name: 'Happy', emoji: '😊', class: 'btn-warning', color: '#fdcb6e' },
+                { name: 'Calm', emoji: '🧘', class: 'btn-info', color: '#74b9ff' },
+                { name: 'Love', emoji: '❤️', class: 'btn-danger', color: '#ff7675' },
+                { name: 'Mystery', emoji: '🔮', class: 'btn-dark', color: '#6c5ce7' }
+            ];
+
+            // Dynamic Greetings
+            const greetings = ['Hello', 'Hola', 'Bonjour', 'Ciao', 'Konnichiwa'];
+            $scope.dynamicGreeting = 'Hello';
+            let greetingIndex = 0;
+            
+            // Initialize greeting rotation
+            $interval(() => {
+                greetingIndex = (greetingIndex + 1) % greetings.length;
+                $scope.dynamicGreeting = greetings[greetingIndex];
+            }, 2000);
+
+            // Update magic level
+            $scope.$watch('name', (newVal) => {
+                $scope.magicLevel = Math.min(newVal.length * 10, 100);
+                $scope.vowelCount = (newVal.match(/[aeiou]/gi) || []).length;
+                $scope.consonantCount = newVal.length - $scope.vowelCount;
+            });
+
+            // Theme Management
+            $scope.toggleTheme = function() {
+                $scope.isDarkMode = !$scope.isDarkMode;
+                document.documentElement.setAttribute('data-theme', 
+                    $scope.isDarkMode ? 'dark' : 'light');
+            };
+
+            // Mood Selection
+            $scope.setMood = function(mood) {
+                $scope.currentEmoji = mood.emoji;
+                $scope.nameColor = mood.color;
+            };
+
+            // Name History
+            $scope.updateHistory = function() {
+                if ($scope.name && $scope.nameHistory[$scope.nameHistory.length - 1] !== $scope.name) {
+                    $scope.nameHistory.push($scope.name);
+                }
+            };
+
+            // Restore Previous Name
+            $scope.restoreName = function(index) {
+                $scope.name = $scope.nameHistory[index];
+            };
+
+            // Animation Effects
+            $scope.animateName = function() {
+                const letters = $scope.name.split('');
+                let animatedName = '';
+                
+                letters.forEach((letter, index) => {
+                    $timeout(() => {
+                        animatedName += letter;
+                        $scope.name = animatedName;
+                    }, index * 100);
+                });
+            };
+
+            // Magic Percentage Calculation
+            $scope.magicPercentage = function() {
+                return Math.min(Math.floor($scope.name.length * 4.16), 100);
+            };
+        });
+
+        // Add sparkle animation
+        document.addEventListener('click', function(e) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = e.pageX + 'px';
+            sparkle.style.top = e.pageY + 'px';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 800);
+        });
+    </script>
+</body>
+</html>
